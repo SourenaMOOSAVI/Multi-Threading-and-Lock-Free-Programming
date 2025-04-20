@@ -178,7 +178,8 @@ reducing the risk of bottlenecks.
     This defeats the purpose of multithreading and results in a program that behaves like single-threaded code.
     Threads will be serialized, and performance gains from parallelism will be lost.
 
-For efficient multithreading, the key is balancing safety and performance. Use locks judiciously:
+For efficient multithreading, the key is balancing safety and performance.  
+Use locks judiciously:
 
 - Protect shared resources from race conditions.
 - Avoid unnecessary locking to maximize concurrency.
