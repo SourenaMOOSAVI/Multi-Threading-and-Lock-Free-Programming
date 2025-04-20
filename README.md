@@ -157,10 +157,10 @@ Final counter value:: 2000000
 
 **Placement of `std::lock_guard<std::mutex>`**
 
-1. Why Place `std::lock_guard` Right Before counter++?
+1. Why Place `std::lock_guard` Right Before `counter++`?
     - `std::lock_guard<std::mutex>` ensures that only one thread can execute the critical section (`counter++`)
-at any given time. By placing the lock directly before the increment operation, you minimize the scope
-of locking, allowing other threads to access unrelated parts of the code without waiting unnecessarily.
+    at any given time. By placing the lock directly before the increment operation, you minimize the scope
+    of locking, allowing other threads to access unrelated parts of the code without waiting unnecessarily.
     - This is a good practice because it keeps the critical section as small and efficient as possible,
 reducing the risk of bottlenecks.
 
