@@ -108,7 +108,7 @@ the output will likely be less than that. The actual result depends on how the t
 - The operation `counter++` may seem simple but is actually composed of multiple steps:
   - Load the value of counter into a register.
   - Increment the value in the register.
-  - Write the updated value back to counter.
+  - Write the updated value back to `counter`.
 - If two threads perform this sequence at the same time, they might overwrite each other’s
 updates, resulting in missed increments.  
 
@@ -145,7 +145,7 @@ This creates a *critical section* for incrementing `counter`, making the operati
 this ensures that the current thread has exclusive access to the shared resource
 until it goes out of scope.
 When one thread holds the lock, other threads must wait, preventing race condition.
-By locking the mutex, you ensure that the three steps of counter++ (load, increment, store)
+By locking the mutex, you ensure that the three steps of `counter++` (load, increment, store)
 are performed atomically—no other thread can interfere during this time.
 Now The program will reliably print:
 
