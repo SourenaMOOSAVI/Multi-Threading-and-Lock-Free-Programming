@@ -116,7 +116,7 @@ updates, resulting in missed increments.
 To fix this issue, you can use synchronization mechanisms like mutexes or atomic operations
 to ensure that only one thread can modify `counter` at a time.
 
-**Good Practices**:
+### Good Practices
 
 - Use thread-local variables whenever possible. If each thread has its own copy of a variable,
 there’s no need for synchronization.
