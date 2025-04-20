@@ -87,6 +87,7 @@ in the next example `raceCondition.cpp`.
 ## Race Condition in Multithreading
 
 **File**: `raceCondition.cpp`  
+
 `raceCondition.cpp` is an excellent example of **Race Condition** in multithreading.
 It demonstrates how multiple threads can interfere with each other when accessing shared
 resources without proper synchronization. Let us break it down further:
@@ -125,6 +126,7 @@ there’s no need for synchronization.
 ## Mutex in Multithreading
 
 **File**: `mutex.cpp`  
+
 `mutexExample.cpp` demonstrates the use of mutexes to prevent **Race Condition**
 in multithreading. It shows how to use `std::mutex` to synchronize access to shared resources
 and ensure that only one thread can modify a shared variable at a time.
@@ -183,8 +185,6 @@ For efficient multithreading, the key is balancing safety and performance. Use l
 
 ### Further Considerations
 
-**File**: `atomic.cpp`  
-
 - **Use `std::unique_lock`**
   - If you need more control over the mutex (like deferred locking or timed locking), consider using `std::unique_lock`.
   - It provides more flexibility than `std::lock_guard`, but also requires more careful management.
@@ -201,6 +201,8 @@ A downside of using mutexes is that they can introduce contention and reduce per
 We will cover more advanced synchronization techniques in the next examples with atomic operations and lock-free programming.
 
 ## Atomic Operations in Multithreading
+
+**File**: `atomic.cpp`  
 
 `atomicExample.cpp` demonstrates the use of atomic operations.
 
