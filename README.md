@@ -183,20 +183,19 @@ For efficient multithreading, the key is balancing safety and performance. Use l
 - Protect shared resources from race conditions.
 - Avoid unnecessary locking to maximize concurrency.
 
-### Further Considerations
+### Best Practices
 
-- **Use `std::unique_lock`**
-  - If you need more control over the mutex (like deferred locking or timed locking), consider using `std::unique_lock`.
-  - It provides more flexibility than `std::lock_guard`, but also requires more careful management.
+- **Minimize Lock Scope**: Place `std::lock_guard` as close as possible to the critical section
+(e.g., around `counter++` rather than the entire loop) to maximize concurrency.
+- **Avoid Deadlocks**: When using multiple mutexes, lock them in a consistent order or use `std::scoped_lock`
+to avoid deadlocks.
+- **Consider Alternatives**: For simple operations like incrementing a counter, atomic operations
+(next section) may be more efficient.
 
-- **Use `std::scoped_lock`**
-  - If you have multiple mutexes to lock, consider using `std::scoped_lock` to lock them all at once.
-  - This prevents deadlocks by ensuring that all locks are acquired in a consistent order.
+### Trade-offs
 
-A downside of using mutexes is that they can introduce contention and reduce performance if not used carefully.
-
-- **Overhead**: Mutexes can introduce overhead due to context switching and locking mechanisms.
-- **Deadlocks**: Improper use of mutexes can lead to deadlocks, where two or more threads are waiting for each other to release locks.
+- **Overhead**: Mutexes introduce locking overhead and potential contention, which can impact performance.
+- **Complexity**: Improper mutex usage can lead to deadlocks or performance bottlenecks.
 
 We will cover more advanced synchronization techniques in the next examples with atomic operations and lock-free programming.
 
